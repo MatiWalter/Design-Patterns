@@ -1,20 +1,16 @@
-public class Departamento implements IDepartamento{
+public abstract class Departamento {
 
-    public IDepartamento siguiente;
+    public Departamento siguiente;
 
-    public void procesar(Reclamo reclamo) {     
-        if (siguiente != null){             // Si tiene siguientes en la cadena
+    public void procesar(Reclamo reclamo) {
+        if (siguiente != null) { // Si tiene siguientes en la cadena
             siguiente.procesar(reclamo);
         }
     }
 
-    public void atenderReclamo(Reclamo reclamo){
-        procesar(reclamo);
-    };
-
-    public IDepartamento conectar(IDepartamento siguiente){
+    public Departamento conectar(Departamento siguiente) {
         this.siguiente = siguiente;
         return siguiente;
     }
-    
+
 }
